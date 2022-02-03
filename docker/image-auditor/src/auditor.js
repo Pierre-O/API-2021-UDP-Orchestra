@@ -3,7 +3,8 @@ const net = require('net');
 const moment = require('moment');
 
 const TIME_INACTIVITY = 5; // in seconds
-const PROTOCOL_PORT = 2205;
+const PROTOCOL_TCP_PORT = 2205;
+const PROTOCOL_PORT = 9907;
 const PROTOCOL_MULTICAST_ADDRESS = "239.255.22.5";
 
 var orchestra = new Map();
@@ -31,6 +32,10 @@ udpSocket.on('message', function(msg, source) {
 	
 });
 
+tcpServer.listen(PROTOCOL_TCP_PORT, function(){
+	console.log("listening");
+});
+
 tcpServer.on('connection', function(socket) {
 	console.log("connection etablished");
 	
@@ -52,8 +57,4 @@ tcpServer.on('connection', function(socket) {
 	
 	socket.write(JSON.stringify(payload));
 	socket.destroy();
-});
-
-tcpServer.listen(PROTOCOL_PORT, function(){
-	console.log("listening on port: " + PROTOCOL_PORT);
 });

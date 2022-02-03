@@ -10,7 +10,7 @@ instrumentMap.set('violin', 'gzi-gzi');
 instrumentMap.set('drum', 'boum-boum');
 
 const TIME = 1000;
-const PROTOCOL_PORT = 2205;
+const PROTOCOL_PORT = 9907;
 const PROTOCOL_MULTICAST_ADDRESS = "239.255.22.5";
 
 const instrument = process.argv[2];

@@ -28,12 +28,7 @@ udpSocket.on('message', function(msg, source) {
 		activeSince: moment().format()
 	};
 	
-	if(!orchestra.has(payload.uuid)){
-		orchestra.set(payload.uuid,musician);
-	}
-	else{
-		orchestra.get(payload.uuid)[2] = moment();
-	}
+	orchestra.set(payload.uuid,musician);
 	
 });
 
@@ -54,7 +49,7 @@ tcpServer.on('connection', function(socket) {
 			var tcpJson = {
 				uuid: key,
 				instrument: value.instrument,
-				activeSince: value.activeSinve
+				activeSince: value.activeSince
 			}
 		}
 		payload.push(tcpJson);

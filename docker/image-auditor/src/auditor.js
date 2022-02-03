@@ -52,8 +52,8 @@ tcpServer.on('connection', function(socket) {
 	
 	socket.write(JSON.stringify(payload));
 	socket.destroy();
-}
+});
 
 tcpServer.listen(PROTOCOL_PORT, function(){
 	console.log("listening on port: " + PROTOCOL_PORT);
-}
+});

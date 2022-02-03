@@ -1,7 +1,7 @@
 FROM node:17.3.0
 
-RUN apt-get update && apt-get install -y vim
-RUN npm install
 COPY src /opt/app
+WORKDIR /opt/app/
+RUN npm install moment --save
 
-ENTRYPOINT ["node", "/opt/app/auditor.js"]
+CMD ["node", "/opt/app/auditor.js"]

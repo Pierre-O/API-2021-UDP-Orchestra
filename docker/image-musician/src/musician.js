@@ -25,6 +25,8 @@ if(!instrumentMap.has(instrument)){
 	return;
 }
 
+var uuid = uuidv4();
+
 function Musician(instrumentChosen){
 	
 	this.instrumentChosen = instrumentChosen;
@@ -32,7 +34,7 @@ function Musician(instrumentChosen){
 	Musician.prototype.update = function(){
 		
 		var measure = {
-			uuid: uuidv4(),
+			uuid: uuid,
 			sound: instrumentMap.get(instrumentChosen),
 			instrument: instrumentChosen
 		};

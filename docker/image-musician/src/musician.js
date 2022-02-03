@@ -11,7 +11,7 @@ instrumentMap.set('drum', 'boum-boum');
 
 const TIME = 1000;
 const PROTOCOL_PORT = 2205;
-const PROTOCOL_MULTICAST_ADDRESS = '239.255.22.5';
+const PROTOCOL_MULTICAST_ADDRESS = "239.255.22.5";
 
 const instrument = process.argv[2];
 
@@ -27,15 +27,14 @@ if(!instrumentMap.has(instrument)){
 
 function Musician(instrumentChosen){
 	
-	this.uuid = uuidv4();
 	this.instrumentChosen = instrumentChosen;
 	
 	Musician.prototype.update = function(){
 		
 		var measure = {
-			uuid: uuid
+			uuid: uuidv4(),
 			sound: instrumentMap.get(instrumentChosen),
-			instrument: instrumentChosen;
+			instrument: instrumentChosen
 		};
 		var payload = JSON.stringify(measure);
 		

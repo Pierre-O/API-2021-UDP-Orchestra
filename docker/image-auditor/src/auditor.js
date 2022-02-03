@@ -4,7 +4,7 @@ const moment = require('moment');
 
 const TIME_INACTIVITY = 5; // in seconds
 const PROTOCOL_PORT = 2205;
-const PROTOCOL_MULTICAST_ADDRESS = '239.255.22.5';
+const PROTOCOL_MULTICAST_ADDRESS = "239.255.22.5";
 
 var orchestra = new Map();
 
